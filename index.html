@@ -12,6 +12,12 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+
+    <!-- Select JS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css"
+    />
   </head>
   <body>
     <!-- Header -->
@@ -60,7 +66,11 @@
     <!-- Menu -->
     <section class="menu">
       <div class="container d-flex justify-content-center">
-        <button type="button" class="btn_keluhan d-flex align-items-center">
+        <button
+          type="button"
+          id="form_open"
+          class="btn_keluhan d-flex align-items-center"
+        >
           <span>
             <img src="assets/icon-edit.png" alt="Icon Edit" width="50" />
           </span>
@@ -72,6 +82,7 @@
         </button>
         <button
           type="button"
+          id="daftar_open"
           class="ms-5 btn_keluhan d-flex align-items-center"
         >
           <span>
@@ -102,6 +113,69 @@
     </section>
     <!-- Menu -->
 
+    <!-- Form Pop Up -->
+    <section class="popup">
+      <div class="form_keluhan">
+        <div class="head_title pb-4">
+          Form Laporan Keluhan
+          <span><i class="bi bi-x form_close"></i></span>
+        </div>
+
+        <form action="" method="post" enctype="">
+          <div class="input_box">
+            <span class="title">Nama Pelapor</span>
+            <input
+              type="text"
+              name="nama_pelapor"
+              id="nama_pelapor"
+              placeholder="Masukkan Nama Pelapor"
+              maxlength="50"
+              autofocus
+              required
+            />
+          </div>
+
+          <div class="input_box">
+            <span class="title">Deskripsi Laporan Keluhan</span>
+            <textarea
+              name="deskripsi_laporan"
+              id="deskripsi_laporan"
+              cols="50"
+              rows="4"
+              placeholder="Jelaskan Keluhan Anda"
+              required
+            ></textarea>
+          </div>
+
+          <div class="input_box">
+            <span class="title">Nama Mitra IKR</span>
+            <select name="nama_mitra" id="nama_mitra">
+              <option selected disabled>Pilih Mitra IKR</option>
+              <option value="GSB">GSB</option>
+              <option value="HP">HP</option>
+              <option value="DGT">DGT</option>
+              <option value="Trikom">Trikom</option>
+            </select>
+          </div>
+
+          <div class="input_box">
+            <span class="title">Berkas Laporan</span>
+            <input
+              class="custom_file"
+              type="file"
+              name="berkas_laporan"
+              id="berkas_laporan"
+            />
+          </div>
+
+          <div class="button d-flex justify-content-end">
+            <input type="submit" value="SUBMIT" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Form Pop Up -->
+
     <!-- Footer -->
     <footer class="footer mb-0 mt-auto">
       <div class="container text-center">
@@ -119,5 +193,8 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
