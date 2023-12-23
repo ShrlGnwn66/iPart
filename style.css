@@ -184,9 +184,9 @@ body {
   color: #000000;
   background-color: #10101066;
 }
-.icon_menu a i:hover {
+/* .icon_menu a i:hover {
   color: #000000;
-}
+} */
 
 .footer {
   background: linear-gradient(to top, #0093ae 0%, #ffff 100%);
