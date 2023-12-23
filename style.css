@@ -6,6 +6,7 @@
 }
 
 body {
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -184,14 +185,14 @@ body {
   color: #000000;
   background-color: #10101066;
 }
-/* .icon_menu a i:hover {
-  color: #000000;
-} */
 
 .footer {
   background: linear-gradient(to top, #0093ae 0%, #ffff 100%);
   color: #fff;
   padding: 30px 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 .footer p {
@@ -199,6 +200,17 @@ body {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
 .form_keluhan {
@@ -219,6 +231,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 100vh;
   background-color: #fff;
 }
 
@@ -268,6 +281,10 @@ form .input_box .custom_file {
 form .input_box textarea {
   padding-left: 15px;
   padding-top: 8px;
+  min-height: 48px;
+  max-height: 200px;
+  resize: vertical;
+  overflow: auto;
 }
 
 form .input_box .select2-container .select2-selection--single {
@@ -276,6 +293,15 @@ form .input_box .select2-container .select2-selection--single {
   display: flex;
   align-items: center;
 }
+
+form .input_box .select2-container,
+form .input_box .select2-selection--single {
+  width: 100% !important;
+}
+form .input_box .select2-search__field {
+  width: 100% !important;
+}
+
 form .input_box input,
 form .input_box textarea,
 form .input_box .select2-container .select2-selection--single {
