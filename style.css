@@ -214,8 +214,12 @@ body {
 }
 
 .form_keluhan {
-  position: absolute;
   max-width: 800px;
+}
+
+.form_keluhan,
+.data_keluhan {
+  position: absolute;
   margin: 0 auto;
   width: 100%;
   padding: 25px 30px;
@@ -226,7 +230,7 @@ body {
   border: 1px solid black;
   z-index: 1000;
   pointer-events: none;
-  transition: all 0.5s ease-in;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: 0;
   top: 50%;
   left: 50%;
@@ -235,14 +239,16 @@ body {
   background-color: #fff;
 }
 
-.popup.show .form_keluhan {
+.popup.show .form_keluhan,
+.data_popup.show .data_keluhan {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
 
-.form_keluhan .head_title {
+.form_keluhan .head_title,
+.data_keluhan .head_title {
   font-weight: 600;
   font-size: 30px;
   line-height: 35.16px;
@@ -251,7 +257,8 @@ body {
   align-items: center;
 }
 
-.form_keluhan .head_title span {
+.form_keluhan .head_title span,
+.data_keluhan .head_title span {
   font-size: 40px;
   font-weight: 600;
   cursor: pointer;
@@ -292,6 +299,15 @@ form .input_box .select2-container .select2-selection--single {
   padding: 0 15px;
   display: flex;
   align-items: center;
+}
+
+form
+  .input_box
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  padding-top: 50px;
+  padding-right: 50px;
 }
 
 form .input_box .select2-container,
@@ -343,4 +359,165 @@ form .button input {
 form .button input:hover {
   background-color: #0093ae;
   transform: scale(0.99);
+}
+
+.data_popup {
+  display: flex;
+  justify-content: center;
+}
+.data_keluhan {
+  padding: 30px 20px;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.data_keluhan .head_title .filter {
+  font-size: 23px;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+}
+
+.data_keluhan .head_title .filter span {
+  font-size: 20px;
+}
+
+.data_keluhan .laporan table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data_keluhan .laporan table td {
+  border-bottom: 1px solid #6d6d6d;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #6d6d6d;
+  text-align: center;
+}
+
+.data_keluhan .laporan th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 10px;
+  background-color: #d9d9d9;
+  color: #6d6d6d;
+  text-align: center;
+}
+
+.data_keluhan .laporan td {
+  padding: 10px;
+}
+
+.data_keluhan .laporan .table-container {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.input_filter {
+  display: none;
+}
+
+.input_data {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.input_data .title_name {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input_data input,
+.input_data select {
+  height: 40px;
+  width: 100%;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: none;
+  background-color: #d9d9d9;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.input_data input:focus,
+.input_data select:focus {
+  border: 1px solid #0093ae;
+  outline: none;
+  border-bottom-width: 2px;
+}
+
+.input_data .select2-container .select2-selection--single {
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: none;
+  background-color: #d9d9d9;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.input_data
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  line-height: 40px;
+}
+
+.input_data
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 40px;
+}
+
+.input_filter .input_data .select2-container {
+  width: 100% !important;
+}
+
+.input_filter .input_data .select2-selection--single {
+  width: 100% !important;
+}
+
+.input_filter .input_data .select2-search__field {
+  width: 100% !important;
+}
+
+.input_data
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow
+  span {
+  border-color: #00a2b9 transparent transparent transparent;
+}
+
+.input_data .select2-container--default .select2-selection--single:focus {
+  border: 1px solid #0093ae;
+  outline: none;
+  border-bottom-width: 2px;
+}
+
+.search_data {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.search_data button {
+  margin-left: 10px;
+  height: 40px;
+  padding: 0 25px;
+  border-radius: 3px;
+  border: 1px solid #00a2b9;
+  background-color: #0093ae;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search_data button:hover {
+  background-color: #035b71;
 }
