@@ -165,14 +165,13 @@
                             <th>Status Pengaduan</th>
                             <th>Berkas Laporan</th>
                         </tr>
-
-                        @foreach ($data as $item)
+                        @foreach ($data as $daftar)
                             <tr>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->mitra }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>{{ $item->status }}</td>
-                                <td>{{ $item->file }}</td>
+                                <td>{{ $daftar->name }}</td>
+                                <td>{{ $daftar->mitra }}</td>
+                                <td>{{ $daftar->created_at }}</td>
+                                <td>{{ $daftar->status }}</td>
+                                <td>{{ $daftar->file }}</td>
                             </tr>
                         @endforeach
                     </table>
