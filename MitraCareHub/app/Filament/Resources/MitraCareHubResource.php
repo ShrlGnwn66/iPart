@@ -16,6 +16,7 @@ use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\Section;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -86,12 +87,15 @@ class MitraCareHubResource extends Resource
 {
     return $infolist
         ->schema([
-            TextEntry::make('name'),
-            TextEntry::make('mitra'),
-            TextEntry::make('description'),
-            TextEntry::make('file'),
-            IconEntry::make('status')->boolean(),
-            TextEntry::make('created_at'),
+            Section::make('Data Keluhan')
+            ->schema([
+                TextEntry::make('name')->label(__('Nama Pelapor')),
+                TextEntry::make('mitra')->label(__('Nama Mitra IKR')),
+                TextEntry::make('description')->label(__('Deskripsi Laporan Keluhan')),
+                TextEntry::make('file'),
+                IconEntry::make('status')->boolean(),
+                TextEntry::make('created_at'),
+            ])->columns(2)
         ]);
 }
 

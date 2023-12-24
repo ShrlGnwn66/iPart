@@ -12,10 +12,14 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SelectColumn;
+use Filament\Forms\Components\Component;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
 
 class DaftarMitraIKRResource extends Resource
 {
@@ -30,8 +34,14 @@ class DaftarMitraIKRResource extends Resource
         return $form
             ->schema([
                 TextInput::make('kode_mitra'),
-                TextInput::make('nama'),
-                TextInput::make('kantor_perwakilan'),
+                TextInput::make('nama')->label('Nama Mitra IKR'),
+                Select::make('kantor_perwakilan')
+                    ->options([
+                        'SEMARANG' => 'SEMARANG',
+                        'YOGYAKARTA' => 'YOGYAKARTA',
+                        'PURWOKERTO' => 'PURWOKERTO',
+                ])->native(false)
+                // TextInput::make('kantor_perwakilan'),
             ]);
     }
 
@@ -44,7 +54,14 @@ class DaftarMitraIKRResource extends Resource
                 TextColumn::make('kantor_perwakilan')->sortable()->searchable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('kantor_perwakilan')
+                ->multiple()
+                ->options([
+                        'SEMARANG' => 'SEMARANG',
+                        'YOGYAKARTA' => 'YOGYAKARTA',
+                        'PURWOKERTO' => 'PURWOKERTO',
+
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
