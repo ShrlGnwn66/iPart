@@ -3,6 +3,7 @@
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DaftarMitraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 //FORM
 Route::POST('/welcome', [FormController::class, 'form']);
+
+
+Route::get('/', [DaftarMitraController::class, 'mitra']);

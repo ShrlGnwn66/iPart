@@ -135,10 +135,10 @@
             <span class="title">Nama Mitra IKR</span>
             <select name="mitra" id="nama_mitra">
                 <option selected disabled>Pilih Mitra IKR</option>
-                <option value="GSB">GSB</option>
-                <option value="HP">HP</option>
-                <option value="DGT">DGT</option>
-                <option value="Trikom">Trikom</option>
+                @foreach($mitra as $item)
+                    <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                    <!-- Menggunakan $item->nama untuk nilai dan teks opsi -->
+                @endforeach
             </select>
             </div>
 
