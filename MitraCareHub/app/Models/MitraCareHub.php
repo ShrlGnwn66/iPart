@@ -12,6 +12,6 @@ class MitraCareHub extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'mitra', 'description', 'file',
+        'name', 'mitra', 'description', 'file', 'status', 'created_at', 'updated_at'
     ];
 }
