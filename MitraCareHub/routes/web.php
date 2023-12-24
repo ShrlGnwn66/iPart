@@ -4,6 +4,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarMitraController;
+use App\Http\Controllers\MitraDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,6 @@ use App\Http\Controllers\DaftarMitraController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 
 //home
 Route::get('/', [HomeController::class, 'index']);
@@ -29,5 +26,5 @@ Route::get('/', [HomeController::class, 'index']);
 //FORM
 Route::POST('/welcome', [FormController::class, 'form']);
 
-
-Route::get('/', [DaftarMitraController::class, 'mitra']);
+// Mitra dan Data Keluhan
+Route::get('/', [MitraDataController::class, 'mitradata']);
