@@ -159,19 +159,56 @@
                 <div class="table-container">
                     <table>
                         <tr>
-                            <th>Nama Pelapor</th>
-                            <th>Nama Mitra IKR</th>
+                            <th class="bagian_1">Nama Pelapor</th>
+                            <th class="bagian_1">Nama Mitra IKR</th>
                             <th>Tanggal Pengaduan</th>
                             <th>Status Pengaduan</th>
                             <th>Berkas Laporan</th>
                         </tr>
+
+                        {{-- ICON FILE --}}
+                        @php
+                            function getFileIconClass($fileExtension)
+                            {
+                                switch ($fileExtension) {
+                                    case 'jpg':
+                                        return 'bi bi-filetype-jpg';
+                                    case 'png':
+                                        return 'bi bi-filetype-png';
+                                    case 'pdf':
+                                        return 'bi-file-pdf';
+                                    case 'ppt':
+                                    case 'pptx':
+                                        return 'bi-filetype-ppt';
+                                    case 'doc':
+                                    case 'docx':
+                                        return 'bi-filetype-docx';
+                                    case 'xls':
+                                    case 'xlsx':
+                                        return 'bi-filetype-xlsx';
+                                    default:
+                                        return 'bi bi-file-earmark';
+                                }
+                            }
+                        @endphp
+
+
                         @foreach ($data as $daftar)
                             <tr>
-                                <td>{{ $daftar->name }}</td>
-                                <td>{{ $daftar->mitra }}</td>
-                                <td>{{ $daftar->created_at }}</td>
-                                <td>{{ $daftar->status }}</td>
-                                <td>{{ $daftar->file }}</td>
+                                <td class="bagian_1">{{ $daftar->name }}</td>
+                                <td class="bagian_1">{{ $daftar->mitra }}</td>
+                                <td>{{ \Carbon\Carbon::parse($daftar->created_at)->format('d/m/Y') }}</td>
+                                <td>
+                                    @if ($daftar->status)
+                                        <img src="assets/yes-icon.png" alt="" width="24px">
+                                    @else
+                                        <img src="assets/no-icon.png" alt="" width="24px">
+                                    @endif
+                                </td>
+                                <td class="file">
+                                    <i
+                                        class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
+                                </td>
                             </tr>
                         @endforeach
                     </table>
