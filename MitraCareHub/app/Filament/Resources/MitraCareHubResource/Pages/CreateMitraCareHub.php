@@ -10,3 +10,4 @@ class CreateMitraCareHub extends CreateRecord
 {
     protected static string $resource = MitraCareHubResource::class;
 }
+    

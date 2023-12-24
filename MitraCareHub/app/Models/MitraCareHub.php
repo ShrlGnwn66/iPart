@@ -10,8 +10,8 @@ class MitraCareHub extends Model
     use HasFactory;
 
     public $timestamps = false;
-    
+
     protected $fillable = [
-        'name', 'mitra', 'description', 'file', 'status', 'created_at'
+        'name', 'mitra', 'description', 'file', 'status', 'created_at', 'updated_at'
     ];
 }

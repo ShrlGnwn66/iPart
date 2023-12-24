@@ -28,6 +28,7 @@ class MitraCareHubResource extends Resource
 
     protected static ?string $navigationLabel = 'Daftar Keluhan';
 
+
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
 
 
@@ -48,7 +49,7 @@ class MitraCareHubResource extends Resource
             ->columns([
                TextColumn::make('name')->label(__('Nama Pelapor'))->sortable()->searchable(),
                TextColumn::make('mitra')->label(__('Nama Mitra IKR'))->sortable()->searchable(),
-               TextColumn::make('description')->label(__('Deskripsi Laporan Keluhan'))->words(7),
+               TextColumn::make('description')->label(__('Deskripsi Laporan Keluhan'))->words(6),
                TextColumn::make('file'),
                IconColumn::make('status')
                ->boolean()->sortable()->searchable(),
