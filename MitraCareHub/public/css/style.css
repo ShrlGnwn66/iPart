@@ -422,20 +422,20 @@ form .button input:hover {
     display: none;
 }
 
-.input_data {
+form .input_data {
     display: flex;
     flex-direction: column;
     width: 350px;
 }
 
-.input_data .title_name {
+form .input_data .title_name {
     font-size: 17px;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.input_data input,
-.input_data select {
+form .input_data input,
+form .input_data select {
     height: 40px;
     width: 100%;
     padding: 0 15px;
@@ -446,14 +446,14 @@ form .button input:hover {
     transition: all 0.3s ease;
 }
 
-.input_data input:focus,
-.input_data select:focus {
+form .input_data input:focus,
+form .input_data select:focus {
     border: 1px solid #0093ae;
     outline: none;
     border-bottom-width: 2px;
 }
 
-.input_data .select2-container .select2-selection--single {
+form .input_data .select2-container .select2-selection--single {
     height: 40px;
     padding: 0 15px;
     border-radius: 3px;
@@ -463,33 +463,36 @@ form .button input:hover {
     transition: all 0.3s ease;
 }
 
-.input_data
+form
+    .input_data
     .select2-container--default
     .select2-selection--single
     .select2-selection__rendered {
     line-height: 40px;
 }
 
-.input_data
+form
+    .input_data
     .select2-container--default
     .select2-selection--single
     .select2-selection__arrow {
     height: 40px;
 }
 
-.input_filter .input_data .select2-container {
+form .input_filter .input_data .select2-container {
     width: 100% !important;
 }
 
-.input_filter .input_data .select2-selection--single {
+form .input_filter .input_data .select2-selection--single {
     width: 100% !important;
 }
 
-.input_filter .input_data .select2-search__field {
+form .input_filter .input_data .select2-search__field {
     width: 100% !important;
 }
 
-.input_data
+form
+    .input_data
     .select2-container--default
     .select2-selection--single
     .select2-selection__arrow
@@ -497,19 +500,19 @@ form .button input:hover {
     border-color: #00a2b9 transparent transparent transparent;
 }
 
-.input_data .select2-container--default .select2-selection--single:focus {
+form .input_data .select2-container--default .select2-selection--single:focus {
     border: 1px solid #0093ae;
     outline: none;
     border-bottom-width: 2px;
 }
 
-.search_data {
+.search_data form {
     display: flex;
     align-items: flex-end;
     margin-bottom: 15px;
 }
 
-.search_data button {
+.search_data form button {
     margin-left: 10px;
     height: 40px;
     padding: 0 25px;
@@ -521,6 +524,6 @@ form .button input:hover {
     transition: all 0.3s ease;
 }
 
-.search_data button:hover {
+.search_data form button:hover {
     background-color: #035b71;
 }

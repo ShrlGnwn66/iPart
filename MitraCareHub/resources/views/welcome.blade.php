@@ -137,21 +137,23 @@
 
             <div class="input_filter">
                 <div class="search_data">
-                    <div class="input_data">
-                        <span class="title_name">Nama Mitra</span>
-                        <select name="nama_mitra" id="pilih_mitra">
-                            <option selected disabled>Pilih Mitra IKR</option>
-                            @foreach ($mitra as $item)
-                                <option value="{{ $item->nama }}">{{ $item->nama }}</option>
-                                <!-- Menggunakan $item->nama untuk nilai dan teks opsi -->
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="input_data ms-3">
-                        <span class="title_name">Nama Pelapor</span>
-                        <input type="text" name="Nama Pelapor" id="" placeholder="Cari Nama Pelapor" />
-                    </div>
-                    <button><i class="bi bi-search"></i></button>
+                    <form action="">
+                        <div class="input_data">
+                            <span class="title_name">Nama Mitra</span>
+                            <select name="nama_mitra" id="pilih_mitra">
+                                <option selected disabled>Pilih Mitra IKR</option>
+                                @foreach ($mitra as $item)
+                                    <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                    <!-- Menggunakan $item->nama untuk nilai dan teks opsi -->
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="input_data ms-3">
+                            <span class="title_name">Nama Pelapor</span>
+                            <input type="text" name="Nama Pelapor" id="" placeholder="Cari Nama Pelapor" />
+                        </div>
+                        <button type="submit"><i class="bi bi-search"></i></button>
+                    </form>
                 </div>
             </div>
 
