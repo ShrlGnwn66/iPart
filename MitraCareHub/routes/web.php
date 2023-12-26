@@ -28,3 +28,4 @@ Route::POST('/welcome', [FormController::class, 'form']);
 
 // Mitra dan Data Keluhan
 Route::get('/', [MitraDataController::class, 'mitradata']);
+Route::get('/search', [MitraDataController::class, 'search'])->name('search');

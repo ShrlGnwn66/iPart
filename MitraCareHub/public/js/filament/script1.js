@@ -23,20 +23,37 @@ formCloseBtn.addEventListener("click", () => {
 });
 
 
-// Pop Up Form
+// Pop Up Data Keluhan
 const DataOpenBtn = document.querySelector("#data_open");
 const DataPopup = document.querySelector(".data_popup");
 const DataKeluhan = document.querySelector(".data_keluhan");
 const DataCloseBtn = document.querySelector(".data_close");
 
+// Cek apakah status pop-up disimpan di localStorage
+const isPopupOpen = localStorage.getItem("isPopupOpen");
+
+// Jika status pop-up ada dan bernilai "true", tampilkan pop-up saat halaman dimuat
+if (isPopupOpen && isPopupOpen === "true") {
+    DataPopup.classList.add("show");
+    overlay.style.display = "block";
+}
+
 DataOpenBtn.addEventListener("click", () => {
+    // Saat tombol dibuka, simpan status "true" di localStorage
+    localStorage.setItem("isPopupOpen", "true");
+
     DataPopup.classList.add("show");
     overlay.style.display = "block";
 });
+
 DataCloseBtn.addEventListener("click", () => {
+    // Saat tombol ditutup, hapus status dari localStorage
+    localStorage.removeItem("isPopupOpen");
+
     DataPopup.classList.remove("show");
     overlay.style.display = "none";
 });
+
 
 
 // Show Filter

@@ -137,7 +137,7 @@
 
             <div class="input_filter">
                 <div class="search_data">
-                    <form action="">
+                    <form action="{{ route('search') }}" method="get">
                         <div class="input_data">
                             <span class="title_name">Nama Mitra</span>
                             <select name="nama_mitra" id="pilih_mitra">
@@ -150,7 +150,7 @@
                         </div>
                         <div class="input_data ms-3">
                             <span class="title_name">Nama Pelapor</span>
-                            <input type="text" name="Nama Pelapor" id="" placeholder="Cari Nama Pelapor" />
+                            <input type="input" name="Nama Pelapor" id="" placeholder="Cari Nama Pelapor" />
                         </div>
                         <button type="submit"><i class="bi bi-search"></i></button>
                     </form>
@@ -194,25 +194,30 @@
                             }
                         @endphp
 
-
-                        @foreach ($data as $daftar)
+                        @if ($data->isEmpty())
                             <tr>
-                                <td class="bagian_1">{{ $daftar->name }}</td>
-                                <td class="bagian_1">{{ $daftar->mitra }}</td>
-                                <td>{{ \Carbon\Carbon::parse($daftar->created_at)->format('d/m/Y') }}</td>
-                                <td>
-                                    @if ($daftar->status)
-                                        <img src="assets/yes-icon.png" alt="" width="24px">
-                                    @else
-                                        <img src="assets/no-icon.png" alt="" width="24px">
-                                    @endif
-                                </td>
-                                <td class="file">
-                                    <i
-                                        class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
-                                </td>
+                                <td colspan="5">Data Yang Anda Cari Tidak Ada</td>
                             </tr>
-                        @endforeach
+                        @else
+                            @foreach ($data as $daftar)
+                                <tr>
+                                    <td class="bagian_1">{{ $daftar->name }}</td>
+                                    <td class="bagian_1">{{ $daftar->mitra }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($daftar->created_at)->format('d/m/Y') }}</td>
+                                    <td>
+                                        @if ($daftar->status)
+                                            <img src="assets/yes-icon.png" alt="" width="24px">
+                                        @else
+                                            <img src="assets/no-icon.png" alt="" width="24px">
+                                        @endif
+                                    </td>
+                                    <td class="file">
+                                        <i
+                                            class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </table>
                 </div>
             </div>
