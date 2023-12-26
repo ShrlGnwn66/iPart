@@ -83,7 +83,7 @@
                 <span><i class="bi bi-x form_close"></i></span>
             </div>
 
-            <form action="/welcome" method="POST" enctype="">
+            <form action="/welcome" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="input_box">
                     <span class="title">Nama Pelapor</span>
@@ -212,8 +212,10 @@
                                         @endif
                                     </td>
                                     <td class="file">
-                                        <i
-                                            class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
+                                        <a href="{{ asset('storage/' . $daftar->file) }}" download="{{ $daftar->file }}">
+                                            <i
+                                                class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
