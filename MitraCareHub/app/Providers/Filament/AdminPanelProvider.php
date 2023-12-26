@@ -25,10 +25,12 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->sidebarCollapsibleOnDesktop()
+            ->favicon(asset('assets/icon.png'))
             ->default()
             ->id('admin')
             ->path('admin')
             ->login()
+            // ->brandName('ACCU')
             ->colors([
                 'primary' => Color::hex('#0093AE'),
             ])
