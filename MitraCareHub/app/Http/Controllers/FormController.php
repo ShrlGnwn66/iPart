@@ -49,7 +49,7 @@ class FormController extends Controller
         'file' => $fileName, // Simpan nama file ke dalam database
     ]);
 
-    return redirect('/')->with('success', 'Form successfully submitted!');
+    return redirect('/')->with('success', 'Laporan Akan ditindak lanjuti!!');
 }
 
 

@@ -14,8 +14,9 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
-                                <img src="assets/plniconplus.png" alt="" width="100" />
-                                <img class="mb-3 ms-4" src="assets/logo-iconnet.png" alt="" width="120" />
+                                <img class="iconplus" src="assets/plniconplus.png" alt="" width="100" />
+                                <img class="iconnet mb-3 ms-4" src="assets/logo-iconnet.png" alt=""
+                                    width="120" />
                             </a>
                         </li>
                     </ul>
@@ -137,20 +138,11 @@
 
             <div class="input_filter">
                 <div class="search_data">
-                    <form action="{{ route('search') }}" method="get">
+                    <form action="/search" method="get">
                         <div class="input_data">
-                            <span class="title_name">Nama Mitra</span>
-                            <select name="nama_mitra" id="pilih_mitra">
-                                <option selected disabled>Pilih Mitra IKR</option>
-                                @foreach ($mitra as $item)
-                                    <option value="{{ $item->nama }}">{{ $item->nama }}</option>
-                                    <!-- Menggunakan $item->nama untuk nilai dan teks opsi -->
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="input_data ms-3">
-                            <span class="title_name">Nama Pelapor</span>
-                            <input type="input" name="Nama Pelapor" id="" placeholder="Cari Nama Pelapor" />
+                            <span class="title_name">Nomor Laporan</span>
+                            <input type="input" name="nomor_laporan" id="nomor_laporan"
+                                placeholder="Cari Nomor Laporan" />
                         </div>
                         <button type="submit"><i class="bi bi-search"></i></button>
                     </form>
@@ -161,6 +153,7 @@
                 <div class="table-container">
                     <table>
                         <tr>
+                            <th>Nomor Laporan</th>
                             <th class="bagian_1">Nama Pelapor</th>
                             <th class="bagian_1">Nama Mitra IKR</th>
                             <th>Tanggal Pengaduan</th>
@@ -196,11 +189,12 @@
 
                         @if ($data->isEmpty())
                             <tr>
-                                <td colspan="5">Data Yang Anda Cari Tidak Ada</td>
+                                <td class="fw-semibold" colspan="6">Data tidak tersedia saat ini.</td>
                             </tr>
                         @else
                             @foreach ($data as $daftar)
                                 <tr>
+                                    <td>{{ $daftar->report_number }}</td>
                                     <td class="bagian_1">{{ $daftar->name }}</td>
                                     <td class="bagian_1">{{ $daftar->mitra }}</td>
                                     <td>{{ \Carbon\Carbon::parse($daftar->created_at)->format('d/m/Y') }}</td>

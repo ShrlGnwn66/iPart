@@ -48,6 +48,7 @@ class MitraCareHubResource extends Resource
     {
         return $table
             ->columns([
+               TextColumn::make('report_number')->label(__('Nomor Laporan'))->sortable()->searchable(),
                TextColumn::make('name')->label(__('Nama Pelapor'))->sortable()->searchable(),
                TextColumn::make('mitra')->label(__('Nama Mitra IKR'))->sortable()->searchable(),
                TextColumn::make('description')->label(__('Deskripsi Laporan Keluhan'))->words(6),
@@ -55,6 +56,8 @@ class MitraCareHubResource extends Resource
                IconColumn::make('status')
                ->boolean()->sortable()->searchable(),
                TextColumn::make('created_at')
+                ->dateTime('d M Y'),
+               TextColumn::make('updated_at')
                 ->dateTime('d M Y')
             ])
             ->filters([
@@ -91,12 +94,14 @@ class MitraCareHubResource extends Resource
         ->schema([
             Section::make('Data Keluhan')
             ->schema([
+                TextEntry::make('report_number')->label(__('Nomor Laporan')),
                 TextEntry::make('name')->label(__('Nama Pelapor')),
                 TextEntry::make('mitra')->label(__('Nama Mitra IKR')),
                 TextEntry::make('description')->label(__('Deskripsi Laporan Keluhan')),
                 TextEntry::make('file'),
                 IconEntry::make('status')->boolean(),
                 TextEntry::make('created_at'),
+                TextEntry::make('updated_at'),
             ])->columns(2)
         ]);
 }

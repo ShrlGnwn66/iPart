@@ -15,6 +15,34 @@ class MitraCareHub extends Model
 
 
     protected $fillable = [
-        'name', 'mitra', 'description', 'file', 'status', 'created_at', 'updated_at'
+        'report_number', 'name', 'mitra', 'description', 'file', 'status', 'created_at', 'updated_at'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($mitraCareHub) {
+            $mitraCareHub->report_number = static::generateReportNumber();
+        });
+    }
+
+    protected static function generateReportNumber()
+    {
+        $prefix = 'A';
+        $datePart = now()->format('dmy');
+        $maxNumber = static::max('report_number');
+
+        if (!$maxNumber) {
+            $maxNumber = $prefix . $datePart . '00';
+        }
+
+         $lastNumber = intval(substr($maxNumber, -2));
+
+        // Hitung nomor urut selanjutnya dan ketika 99 akan dikembalikan ke no urut 1
+        $nextNumber = $lastNumber + 1;
+        $nextNumber = ($nextNumber > 99) ? 1 : $nextNumber;
+
+        return $prefix . $datePart . str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
+    }
 }

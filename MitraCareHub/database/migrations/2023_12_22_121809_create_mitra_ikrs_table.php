@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('kode_mitra');
             $table->string('nama');
             $table->string('kantor_perwakilan');
-            $table->timestamps();
+            table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

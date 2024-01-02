@@ -52,6 +52,7 @@ DataCloseBtn.addEventListener("click", () => {
 
     DataPopup.classList.remove("show");
     overlay.style.display = "none";
+    window.location.href = '/';
 });
 
 
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var inputFilter = document.querySelector('.input_filter');
     var arrowDown = document.querySelector('.arrow_down');
     var arrowUp = document.querySelector('.arrow_up');
+
 
 
     inputFilter.style.display = 'none';

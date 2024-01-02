@@ -11,28 +11,26 @@ class MitraDataController extends Controller
         public function mitradata(Request $request)
     {
         $mitra = MitraIkr::all();
-        $data = MitraCareHub::all();
+        $data = MitraCareHub::orderBy('created_at', 'desc')->get();
         
 
         return view('welcome', compact('mitra', 'data'));
     }
 
+
+    // Search Filter by report number
     public function search(Request $request)
 {
-    $namaMitra = $request->input('nama_mitra');
-    $namaPelapor = $request->input('nama_pelapor');
+    $nomorLaporan = $request->input('nomor_laporan');
 
     $data = MitraCareHub::query();
 
-    if ($namaMitra) {
-        $data->where('mitra', $namaMitra);
-    }
-
-    if ($namaPelapor) {
-        $data->where('name', 'like', "%$namaPelapor%");
+    if ($nomorLaporan) {
+        $data->where('report_number', $nomorLaporan);
     }
 
     $result = $data->get();
+
 
     return view('welcome', [
         'data' => $result,
