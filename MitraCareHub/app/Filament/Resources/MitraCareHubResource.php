@@ -6,6 +6,7 @@ use App\Filament\Resources\MitraCareHubResource\Pages;
 use App\Filament\Resources\MitraCareHubResource\RelationManagers;
 use App\Models\MitraCareHub;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -20,6 +21,7 @@ use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Support\Enums\ActionSize;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,8 +36,6 @@ class MitraCareHubResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
 
-
-
     public static function form(Form $form): Form
     {
         return $form
@@ -45,7 +45,6 @@ class MitraCareHubResource extends Resource
                     ->inline()
             ]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -54,7 +53,7 @@ class MitraCareHubResource extends Resource
                TextColumn::make('name')->label(__('Nama Pelapor'))->sortable()->searchable(),
                TextColumn::make('mitra')->label(__('Nama Mitra IKR'))->sortable()->searchable(),
                TextColumn::make('description')->label(__('Deskripsi Laporan Keluhan'))->words(6),
-               TextColumn::make('file'),
+               ImageColumn::make('file'),
                IconColumn::make('status')
                ->boolean()->sortable()->searchable(),
                TextColumn::make('created_at')
@@ -63,13 +62,11 @@ class MitraCareHubResource extends Resource
                 ->dateTime('d M Y')
             ])
             ->filters([
-
                 SelectFilter::make('status')
                     ->multiple()
                     ->options([
                             '1' => 'Selesai',
                             '0' => 'Belum Selesai',
-
                         ])
             ])
             ->actions([
@@ -86,7 +83,6 @@ class MitraCareHubResource extends Resource
                     ]),
                 ]);
     }
-
     public static function infolist(Infolist $infolist): Infolist
 {
     return $infolist
@@ -97,7 +93,7 @@ class MitraCareHubResource extends Resource
                 TextEntry::make('name')->label(__('Nama Pelapor')),
                 TextEntry::make('mitra')->label(__('Nama Mitra IKR')),
                 TextEntry::make('description')->label(__('Deskripsi Laporan Keluhan')),
-                TextEntry::make('file'),
+                ImageEntry::make('file'),
                 IconEntry::make('status')->boolean(),
                 TextEntry::make('created_at'),
                 TextEntry::make('updated_at'),
@@ -111,9 +107,6 @@ class MitraCareHubResource extends Resource
             //
         ];
     }
-
-
-
     public static function getPages(): array
     {
         return [
