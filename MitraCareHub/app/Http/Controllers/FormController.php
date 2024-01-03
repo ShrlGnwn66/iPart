@@ -9,22 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
-    // public function form (Request $request)
-    // {
-    //     $validatedData = $request->validate ([
-    //             'name' => 'required',
-    //             'mitra' => 'required',
-    //             'description' => 'required',
-    //             'file' => 'required'
-    //     ]);
-
-    //     // dd('aaaa');
-
-    //     MitraCareHub::create($validatedData);
-
-    //     return redirect('/')->with('success', 'Form successfully submitted!');
-    // }
-
     public function form(Request $request)
     {
     $validatedData = $request->validate([

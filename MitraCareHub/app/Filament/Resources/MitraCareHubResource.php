@@ -18,6 +18,8 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
+use Filament\Support\Enums\ActionSize;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -61,12 +63,6 @@ class MitraCareHubResource extends Resource
                 ->dateTime('d M Y')
             ])
             ->filters([
-                // Filter::make('Selesai')
-                //     ->query(fn (Builder $query): Builder => $query->where('status', true)),
-                // Filter::make('Belum Selesai')
-                //     ->query(fn (Builder $query): Builder => $query->where('status', false)),
-
-                // SelectFilter::make('Selesai')->relationship('status', 'name'),
 
                 SelectFilter::make('status')
                     ->multiple()
@@ -77,15 +73,18 @@ class MitraCareHubResource extends Resource
                         ])
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
+                //...
+                ])
+                ->bulkActions([
+                    Tables\Actions\BulkActionGroup::make([
+                        Tables\Actions\DeleteBulkAction::make(),
+                    ]),
+                ]);
     }
 
     public static function infolist(Infolist $infolist): Infolist
