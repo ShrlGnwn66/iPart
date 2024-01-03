@@ -606,5 +606,6 @@ form .input_data input:focus {
 
     .data_keluhan .laporan table {
         font-size: 13px;
+        width: 300%;
     }
 }
