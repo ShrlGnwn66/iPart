@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
@@ -54,7 +55,7 @@ class MitraCareHubResource extends Resource
                TextColumn::make('name')->label(__('Nama Pelapor'))->sortable()->searchable(),
                TextColumn::make('mitra')->label(__('Nama Mitra IKR'))->sortable()->searchable(),
                TextColumn::make('description')->label(__('Deskripsi Laporan Keluhan'))->words(6),
-               TextColumn::make('file'),
+               ImageColumn::make('file'),
                IconColumn::make('status')
                ->boolean()->sortable()->searchable(),
                TextColumn::make('created_at')
@@ -97,7 +98,7 @@ class MitraCareHubResource extends Resource
                 TextEntry::make('name')->label(__('Nama Pelapor')),
                 TextEntry::make('mitra')->label(__('Nama Mitra IKR')),
                 TextEntry::make('description')->label(__('Deskripsi Laporan Keluhan')),
-                TextEntry::make('file'),
+                ImageEntry::make('file'),
                 IconEntry::make('status')->boolean(),
                 TextEntry::make('created_at'),
                 TextEntry::make('updated_at'),
