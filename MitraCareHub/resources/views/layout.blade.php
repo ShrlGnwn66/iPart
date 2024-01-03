@@ -44,11 +44,16 @@
     <script>
         // Periksa apakah ada pesan keberhasilan dalam sesi
         @if (session('success'))
-            // Tampilkan alert keberhasilan SweetAlert 2
-            Swal.fire({
-                icon: 'success',
-                title: 'Laporan Anda Berhasil Terkirim',
-                text: '{{ session('success') }}',
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Laporan Terkirim',
+                    text: '{{ session('success') }}',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    }
+                });
             });
         @endif
     </script>

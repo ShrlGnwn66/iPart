@@ -34,15 +34,14 @@ class MitraCareHub extends Model
         $maxNumber = static::max('report_number');
 
         if (!$maxNumber) {
-            $maxNumber = $prefix . $datePart . '00';
+            $maxNumber = $prefix . $datePart . '000';
         }
 
-         $lastNumber = intval(substr($maxNumber, -2));
+         $lastNumber = intval(substr($maxNumber, -3));
 
-        // Hitung nomor urut selanjutnya dan ketika 99 akan dikembalikan ke no urut 1
         $nextNumber = $lastNumber + 1;
-        $nextNumber = ($nextNumber > 99) ? 1 : $nextNumber;
+        $nextNumber = ($nextNumber > 999) ? 1 : $nextNumber;
 
-        return $prefix . $datePart . str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
+        return $prefix . $datePart . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
     }
 }

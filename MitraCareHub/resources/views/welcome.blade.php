@@ -43,7 +43,7 @@
     <!-- Menu -->
     <section class="menu">
         <div class="container d-flex justify-content-center">
-            <button type="button" id="form_open" class="btn_keluhan d-flex align-items-center">
+            <button type="button" id="form_open" class="mb-lg-0 mb-md-0 mb-4 btn_keluhan d-flex align-items-center">
                 <span>
                     <img src="assets/icon-edit.png" alt="Icon Edit" width="50" />
                 </span>
@@ -53,7 +53,7 @@
                     <p>Isi keluhan anda pada menu ini</p>
                 </div>
             </button>
-            <button type="button" id="data_open" class="ms-5 btn_keluhan d-flex align-items-center">
+            <button type="button" id="data_open" class="ms-lg-5 ms-md-5 ms-sm-0 btn_keluhan d-flex align-items-center">
                 <span>
                     <img src="assets/icon-search.png" alt="Icon Search" width="50" />
                 </span>
@@ -127,7 +127,7 @@
         <div class="data_keluhan">
             <div class="head_title pb-4">
                 Daftar Laporan Keluhan
-                <a id="toggleFilter" class="filter ms-auto me-5">
+                <a id="toggleFilter" class="filter ms-auto me-lg-5 me-md-5 me-2">
                     <i class="bi bi-funnel-fill"></i>
                     Filter
                     <span class="arrow_down"><i class="bi bi-chevron-down"></i></span>
@@ -206,7 +206,7 @@
                                         @endif
                                     </td>
                                     <td class="file">
-                                        <a href="{{ asset('storage/' . $daftar->file) }}" >
+                                        <a href="{{ asset('storage/' . $daftar->file) }}">
                                             <i
                                                 class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
                                         </a>
