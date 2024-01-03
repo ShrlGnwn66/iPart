@@ -19,8 +19,8 @@ class FormController extends Controller
     ]);
 
     // Simpan file ke direktori public
-    $file = $request->file('file'); // Dapatkan file dari request
-    $fileName = $file->getClientOriginalName(); // Dapatkan nama asli file
+    $file = $request->file('file');
+    $fileName = $file->getClientOriginalName();
 
     // Pindahkan file ke direktori public menggunakan Storage
     $file->storeAs('public', $fileName);
@@ -30,7 +30,7 @@ class FormController extends Controller
         'name' => $validatedData['name'],
         'mitra' => $validatedData['mitra'],
         'description' => $validatedData['description'],
-        'file' => $fileName, // Simpan nama file ke dalam database
+        'file' => $fileName,
     ]);
 
     return redirect('/')->with('success', 'Akan Segera Ditindak Lanjuti.');

@@ -39,7 +39,6 @@ class MitraCareHub extends Model
 
          $lastNumber = intval(substr($maxNumber, -3));
 
-        // Hitung nomor urut selanjutnya dan ketika 99 akan dikembalikan ke no urut 1
         $nextNumber = $lastNumber + 1;
         $nextNumber = ($nextNumber > 999) ? 1 : $nextNumber;
 
