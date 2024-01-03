@@ -206,7 +206,7 @@
                                         @endif
                                     </td>
                                     <td class="file">
-                                        <a href="{{ asset('storage/' . $daftar->file) }}" download="{{ $daftar->file }}">
+                                        <a href="{{ asset('storage/' . $daftar->file) }}" >
                                             <i
                                                 class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
                                         </a>
