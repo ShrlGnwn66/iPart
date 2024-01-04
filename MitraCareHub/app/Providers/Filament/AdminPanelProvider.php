@@ -44,6 +44,11 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
             ])
+            ->navigationGroups([
+                'Settings',
+                'Laporan Keluhan',
+                'Mitra IKR',
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
