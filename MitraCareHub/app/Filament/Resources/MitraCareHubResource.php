@@ -61,8 +61,6 @@ class MitraCareHubResource extends Resource
                ->boolean()->sortable()->searchable(),
                TextColumn::make('created_at')
                 ->dateTime('d M Y'),
-               TextColumn::make('updated_at')
-                ->dateTime('d M Y')
             ])
             ->filters([
                 SelectFilter::make('status')
