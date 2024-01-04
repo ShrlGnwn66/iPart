@@ -6,12 +6,13 @@ use App\Filament\Resources\MitraCareHubResource\Pages;
 use App\Filament\Resources\MitraCareHubResource\RelationManagers;
 use App\Models\MitraCareHub;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
@@ -21,6 +22,7 @@ use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Support\Enums\ActionSize;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -37,8 +39,6 @@ class MitraCareHubResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
 
-
-
     public static function form(Form $form): Form
     {
         return $form
@@ -48,7 +48,6 @@ class MitraCareHubResource extends Resource
                     ->inline()
             ]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -66,14 +65,23 @@ class MitraCareHubResource extends Resource
                 ->dateTime('d M Y')
             ])
             ->filters([
-
                 SelectFilter::make('status')
                     ->multiple()
                     ->options([
                             '1' => 'Selesai',
                             '0' => 'Belum Selesai',
-
+                    ]),
+                    Filter::make('created_at')
+                        ->form([
+                            DatePicker::make('created_from')->label(__('Date')),
                         ])
+                        ->query(function (Builder $query, array $data): Builder {
+                            return $query
+                                ->when(
+                                    $data['created_from'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('created_at', '=', $date),
+                                );
+                        })
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
@@ -89,7 +97,6 @@ class MitraCareHubResource extends Resource
                     ]),
                 ]);
     }
-
     public static function infolist(Infolist $infolist): Infolist
 {
     return $infolist
@@ -114,9 +121,6 @@ class MitraCareHubResource extends Resource
             //
         ];
     }
-
-
-
     public static function getPages(): array
     {
         return [
