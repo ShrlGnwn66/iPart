@@ -20,6 +20,8 @@ class AdminResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    protected static ?string $navigationGroup = 'Settings';
+
     protected static ?string $navigationLabel = 'Admin';
 
     protected static ?string $navigationIcon = 'heroicon-s-user';
