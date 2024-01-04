@@ -32,6 +32,8 @@ class MitraCareHubResource extends Resource
 {
     protected static ?string $model = MitraCareHub::class;
 
+    protected static ?string $navigationGroup = 'Laporan Keluhan';
+
     protected static ?string $navigationLabel = 'Daftar Keluhan';
 
 

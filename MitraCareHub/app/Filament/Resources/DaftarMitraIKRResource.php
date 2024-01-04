@@ -25,6 +25,8 @@ class DaftarMitraIKRResource extends Resource
 {
     protected static ?string $model = MitraIkr::class;
 
+    protected static ?string $navigationGroup = 'Mitra IKR';
+
     protected static ?string $navigationLabel = 'Daftar Mitra IKR';
 
     protected static ?string $navigationIcon = 'heroicon-s-list-bullet';
