@@ -6,13 +6,13 @@ use App\Filament\Resources\MitraCareHubResource\Pages;
 use App\Filament\Resources\MitraCareHubResource\RelationManagers;
 use App\Models\MitraCareHub;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
@@ -68,7 +68,18 @@ class MitraCareHubResource extends Resource
                     ->options([
                             '1' => 'Selesai',
                             '0' => 'Belum Selesai',
+                    ]),
+                    Filter::make('created_at')
+                        ->form([
+                            DatePicker::make('created_from')->label(__('Date')),
                         ])
+                        ->query(function (Builder $query, array $data): Builder {
+                            return $query
+                                ->when(
+                                    $data['created_from'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('created_at', '=', $date),
+                                );
+                        })
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
