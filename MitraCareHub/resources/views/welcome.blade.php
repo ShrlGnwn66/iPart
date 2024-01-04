@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="input_box">
-                    <span class="title">Berkas Laporan</span>
+                    <span class="title berkas">Berkas Laporan</span>
                     <input class="custom_file" type="file" name="file" id="berkas_laporan" />
                 </div>
 
@@ -167,20 +167,14 @@
                             {
                                 switch ($fileExtension) {
                                     case 'jpg':
+                                    case 'jpeg':
                                         return 'bi bi-filetype-jpg';
                                     case 'png':
                                         return 'bi bi-filetype-png';
-                                    case 'pdf':
-                                        return 'bi-file-pdf';
-                                    case 'ppt':
-                                    case 'pptx':
-                                        return 'bi-filetype-ppt';
-                                    case 'doc':
-                                    case 'docx':
-                                        return 'bi-filetype-docx';
-                                    case 'xls':
-                                    case 'xlsx':
-                                        return 'bi-filetype-xlsx';
+                                    case 'heic':
+                                        return 'bi bi-filetype-heic';
+                                    case 'svg':
+                                        return 'bi bi-filetype-svg';
                                     default:
                                         return 'bi bi-file-earmark';
                                 }
