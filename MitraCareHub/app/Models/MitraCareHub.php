@@ -10,7 +10,8 @@ class MitraCareHub extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    // public $timestamps = false;
+
     protected $table = 'mitra_care_hubs';
 
 

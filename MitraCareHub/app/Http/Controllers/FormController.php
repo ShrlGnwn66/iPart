@@ -34,7 +34,7 @@ class FormController extends Controller
     ]);
 
     return redirect('/')->with('success', 'Akan Segera Ditindak Lanjuti.');
-    
+
 }
 
 
