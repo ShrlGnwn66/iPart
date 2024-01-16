@@ -6,7 +6,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <h4 class="mb-0 mt-3 fw-semibold">MitraCareHub</h4>
+                    <h4 class="mb-0 mt-3 fw-semibold">i - P a r t</h4>
                     <p>Pengaduan Keluhan Mitra IKR</p>
                 </a>
 
