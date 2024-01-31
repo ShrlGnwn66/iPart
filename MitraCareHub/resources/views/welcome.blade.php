@@ -200,7 +200,7 @@
                                         @endif
                                     </td>
                                     <td class="file">
-                                        <a href="{{ asset('storage/' . $daftar->file) }}">
+                                        <a href="{{ asset('storage/' . $daftar->file) }}" target="_blank">
                                             <i
                                                 class="bi {{ getFileIconClass(pathinfo($daftar->file, PATHINFO_EXTENSION)) }} fs-3 fw-bold"></i>
                                         </a>
